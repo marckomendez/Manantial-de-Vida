@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const sectionTop = section.offsetTop - 100;
             const sectionHeight = section.clientHeight;
             
-            if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+            if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
                 current = section.getAttribute('id');
             }
         });
@@ -110,25 +110,6 @@ document.addEventListener('DOMContentLoaded', function() {
     animatedElements.forEach(element => {
         observer.observe(element);
     });
-
-    // Add fade-in animation styles dynamically
-    const style = document.createElement('style');
-    style.textContent = `
-        .service-card,
-        .ministry-card,
-        .about-text,
-        .contact-item {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .fade-in {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(style);
 });
 
 // Back to top functionality
@@ -140,33 +121,6 @@ window.addEventListener('scroll', function() {
             backToTop.innerHTML = '↑';
             backToTop.setAttribute('aria-label', 'Volver arriba');
             document.body.appendChild(backToTop);
-
-            // Add styles for back to top button
-            const style = document.createElement('style');
-            style.textContent = `
-                .back-to-top {
-                    position: fixed;
-                    bottom: 30px;
-                    right: 30px;
-                    background: var(--accent-color);
-                    color: white;
-                    border: none;
-                    border-radius: 50%;
-                    width: 50px;
-                    height: 50px;
-                    font-size: 24px;
-                    cursor: pointer;
-                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                    transition: all 0.3s;
-                    z-index: 999;
-                }
-                
-                .back-to-top:hover {
-                    background: #e67e22;
-                    transform: translateY(-5px);
-                }
-            `;
-            document.head.appendChild(style);
 
             backToTop.addEventListener('click', function() {
                 window.scrollTo({

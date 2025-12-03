@@ -490,3 +490,41 @@ textarea:focus {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
 }
+
+/* Animation Styles */
+.service-card,
+.ministry-card,
+.about-text,
+.contact-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    z-index: 999;
+}
+
+.back-to-top:hover {
+    background: #e67e22;
+    transform: translateY(-5px);
+}
